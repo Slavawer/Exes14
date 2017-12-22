@@ -13,7 +13,7 @@ class CreatePointsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Points', function (Blueprint $table) {
+        Schema::create('points', function (Blueprint $table) {
             $table->increments('id');
 
          //   $table->integer('members_id')->unsigned()->default(1);

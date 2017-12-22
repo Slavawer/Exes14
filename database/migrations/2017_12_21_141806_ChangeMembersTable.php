@@ -14,6 +14,7 @@ class ChangeMembersTable extends Migration
     public function up()
     {
         Schema::table('members', function (Blueprint $table) {
+
             $table->integer('direction_id')->unsigned()->default(1);
             $table->foreign('direction_id')->references('id')->on('directions');
         });
