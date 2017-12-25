@@ -13,7 +13,7 @@ class ChangePointsTable extends Migration
      */
     public function up()
     {
-        Schema::table('Points', function (Blueprint $table) {
+        Schema::table('points', function (Blueprint $table) {
 
             $table->integer('members_id')->unsigned()->default(1);
             $table->foreign('members_id')->references('id')->on('members');
