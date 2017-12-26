@@ -12,6 +12,8 @@ class MembersTableSeeder extends Seeder
 
     public function run()
     {
-        factory(App\Members::class, 10)->create();
+        for ($i = 1; $i <= 5; $i++) {
+            factory(App\Member::class, 2)->create(['direction_id' => $i]);
+        }
     }
 }
