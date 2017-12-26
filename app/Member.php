@@ -8,8 +8,8 @@ class Member extends Model
 {
     public $timestamps = false;
 
-    public function direction()
+    public function point()
     {
-        return $this->hasMany(direction::class, 'direction_id', 'id');
+        return $this->hasMany(point::class, 'members_id', 'id');
     }
 }

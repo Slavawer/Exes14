@@ -9,6 +9,5 @@ $factory->define(App\Member::class, function (Faker $faker) {
         'avatar' => $faker->image(),
         'info' => $faker->text(200),
         'status' => $faker->randomElement(['В игре', 'Выбыл']),
-        'direction_id' => mt_rand(1, 5)
     ];
 });
