@@ -12,9 +12,8 @@ class MembersTableSeeder extends Seeder
     public function run()
     {
         $sql = DB::table('directions')->select('id')->get();
-        foreach ($sql as $directions) {
-            ['direction_id' => $directions->id];
-            factory(App\Member::class, 2)->create(['direction_id' => $directions->id]);
+        foreach ($sql as $direction) {
+            factory(App\Member::class, 2)->create(['direction_id' => $direction->id]);
         }
     }
 }

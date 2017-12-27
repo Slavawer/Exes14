@@ -2,44 +2,47 @@
 
 namespace App\Repositories;
 
-use App\members;
+use App\member;
 
 class EloquentMembers implements MembersRepository
 {
 
     private $model;
 
-    public function __construct(members $model)
+    public function __construct(member $model)
     {
         $this->model = $model;
     }
 
-    public function GetAll($columns = array('*'))
+    /**
+     * {@inheritdoc}
+     */
+    public function getAll($columns = array('*'))
     {
         return $this->model->get($columns);
     }
 
-    public function getById($id, $column)
+    public function getById($id)
     {
-        return $this->model->get($id, $column);
+        return $this->model->get($id);
     }
 
-    public function GetDirectionMembers($id, $direction)
+    public function getDirectionMembers($id, $direction)
     {
         return $this->model->get($id, $direction);
     }
 
-    public function GetStatusMembers($id, $status)
+    public function getStatusMembers($id, $status)
     {
         return $this->model->get($id, $status);
     }
 
-    public function AddPointsMember(array $columns)
+    public function addPointsMember(array $columns)
     {
         return $this->model->create($columns);
     }
 
-    public function EditMember($id, array $columns)
+    public function editMember($id, array $columns)
     {
         return $this->model->find($id)->update($columns);
     }

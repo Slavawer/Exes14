@@ -2,18 +2,67 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Collection;
+use App\Member;
+
 
 interface MembersRepository
 {
-    function GetAll($columns = array('*'));
+    /**
+     * Gets all members
+     *
+     * @param array $columns
+     * @return Collection
+     */
+    function getAll($columns = array('*'));
 
-    function GetById($id);
+    /**
+     * Get member by id
+     *
+     * @param int $id
+     * @return Member
+     */
+    function getById(int $id);
 
-    function GetDirectionMembers($id, $direction);
+    /**
+     * Gets members by direction
+     *
+     * @param $direction
+     * @return Member
+     */
 
-    function GetStatusMembers($id, $status);
+    function getDirectionMembers($id, $direction);
 
-    function AddPointsMember(array $columns);
+    /**
+     * Gets members by status
+     *
+     * @param $status
+     * @return Member
+     */
 
-    function EditMember($id, array $columns);
+    function getStatusMembers($id, $status);
+
+    /**
+     * Gets member by points
+     *
+     * @param array $columns
+     * @return Member
+     */
+
+    function addPointsMember(array $columns);
+
+    /**
+     * Add Points for members
+     *
+     * @param array $columns
+     * @return Member
+     */
+
+    function editMember($id, array $columns);
+    /**
+     * Edit members
+     *
+     * @param array $columns
+     * @return Member
+     */
 }

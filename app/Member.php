@@ -8,13 +8,13 @@ class Member extends Model
 {
     public $timestamps = false;
 
-    public function Direction()
+    public function direction()
     {
-        return $this->hasMany(Direction::class, 'id', 'direction_id');
+        return $this->belongsTo(Direction::class);
     }
 
-    public function Point()
+    public function points()
     {
-        return $this->hasMany(Point::class, 'members_id', 'id');
+        return $this->hasMany(Point::class);
     }
 }

@@ -15,8 +15,8 @@ class CreatePointsTable extends Migration
     {
         Schema::create('points', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('members_id')->unsigned();
-            $table->foreign('members_id')->references('id')->on('members');
+            $table->integer('member_id')->unsigned();
+            $table->foreign('member_id')->references('id')->on('members');
             $table->decimal('points');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreatePointsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status');
+        Schema::dropIfExists('points');
     }
 }

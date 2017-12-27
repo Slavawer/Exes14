@@ -12,22 +12,13 @@ class DirectionsSeeder extends Seeder
      */
     public function run()
     {
-        Direction::create([
-            'title' => 'Frontend'
-        ]);
-
-        Direction::create([
-            'title' => 'Backend'
-        ]);
-
-        Direction::create([
-            'title' => 'Android'
-        ]);
-        Direction::create([
-            'title' => 'iOS'
-        ]);
-        Direction::create([
-            'title' => 'QA'
-        ]);
+        $data = [
+            ['title' => 'QA Тестировщики',],
+            ['title' => 'Android-Разработчики',],
+            ['title' => 'IOS-Разработчики',],
+            ['title' => 'Fronted-Разработчики',],
+            ['title' => 'Backend-Разработчики',],
+        ];
+        Direction::insert($data);
     }
 }
