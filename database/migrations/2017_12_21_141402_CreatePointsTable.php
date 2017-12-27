@@ -17,7 +17,7 @@ class CreatePointsTable extends Migration
             $table->increments('id');
             $table->integer('members_id')->unsigned();
             $table->foreign('members_id')->references('id')->on('members');
-            $table->string('points');
+            $table->decimal('points');
             $table->timestamps();
         });
     }

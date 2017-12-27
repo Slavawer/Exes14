@@ -9,11 +9,12 @@ class MembersTableSeeder extends Seeder
      *
      * @return void
      */
-
     public function run()
     {
-        for ($i = 1; $i <= 5; $i++) {
-            factory(App\Member::class, 2)->create(['direction_id' => $i]);
+        $sql = DB::table('directions')->select('id')->get();
+        foreach ($sql as $directions) {
+            ['direction_id' => $directions->id];
+            factory(App\Member::class, 2)->create(['direction_id' => $directions->id]);
         }
     }
 }

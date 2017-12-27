@@ -11,8 +11,10 @@ class PointsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 10; $i++) {
-            factory(App\Point::class, mt_rand(1, 5))->create(['members_id' => $i]);
+        $sql = DB::table('members')->select('id')->get();
+        foreach ($sql as $members) {
+            ['direction_id' => $members->id];
+            factory(App\Point::class, mt_rand(1, 5))->create(['members_id' => $members->id]);
         }
     }
 }

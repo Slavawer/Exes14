@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Point extends Model
 {
-    public function member()
+    public function Member()
     {
-        return $this->hasMany(member::class, 'members_id', 'id');
+        return $this->hasMany(Member::class, 'members_id', 'id');
     }
 }

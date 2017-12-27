@@ -7,7 +7,7 @@ interface MembersRepository
 {
     function GetAll($columns = array('*'));
 
-    function getById($id, $column);
+    function GetById($id);
 
     function GetDirectionMembers($id, $direction);
 

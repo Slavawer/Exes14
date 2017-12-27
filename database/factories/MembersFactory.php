@@ -7,7 +7,7 @@ $factory->define(App\Member::class, function (Faker $faker) {
         'firstname' => $faker->firstName,
         'lastname' => $faker->lastName,
         'avatar' => $faker->image(),
-        'info' => $faker->text(200),
+        'info' => $faker->text(),
         'status' => $faker->randomElement(['В игре', 'Выбыл']),
     ];
 });

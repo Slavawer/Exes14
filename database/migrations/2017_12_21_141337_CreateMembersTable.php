@@ -19,7 +19,7 @@ class CreateMembersTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('avatar');
-            $table->text('info', 200);
+            $table->text('info');
             $table->enum('status', ['В игре', 'Выбыл']);
             $table->integer('direction_id')->unsigned();
             $table->foreign('direction_id')->references('id')->on('directions');
