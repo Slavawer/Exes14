@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 class EloquentMembers implements MembersRepository
 {
-    private $model;
+    protected $model;
 
     public function __construct(member $model)
     {
@@ -21,31 +21,31 @@ class EloquentMembers implements MembersRepository
 
     public function getAll(): Collection
     {
-        return $this->model->get();
+        return $this->model->all();
     }
 
     public function getById(int $id): Member
     {
-        return $this->model->get($id);
+        return $this->model->where('id', $id)->get();
     }
 
     public function getByDirection(Direction $direction): Collection
     {
-        return $this->model->get($direction);
+        return $this->model->where('Direction', $direction)->get();
     }
 
     public function getByStatus($status)
     {
-        return $this->model->get($status);
+        return $this->model->where($status)->get();
     }
 
     public function update(Member $member, array $columns): void
     {
-
+        return $this->model->where($columns)->update($member);
     }
 
     public function addPoints(Member $member, float $points): void
     {
-
+        return $this->model->where($member)->add($points);
     }
 }
