@@ -15,6 +15,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(MembersRepository::class, EloquentMembers::class);
+        $this->app->bind(MembersRepository::class, EloquentMembers::class);
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [
+            MembersRepository::class,
+        ];
     }
 }

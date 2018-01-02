@@ -3,14 +3,14 @@
 namespace App\Repositories;
 
 use App\Direction;
-use App\member;
+use App\Member;
 use Illuminate\Support\Collection;
 
 class EloquentMembers implements MembersRepository
 {
     protected $model;
 
-    public function __construct(member $model)
+    public function __construct(Member $model)
     {
         $this->model = $model;
     }
@@ -26,26 +26,26 @@ class EloquentMembers implements MembersRepository
 
     public function getById(int $id): Member
     {
-        return $this->model->where('id', $id)->get();
+        return $this->model->find($id);
     }
 
     public function getByDirection(Direction $direction): Collection
     {
-        return $this->model->where('Direction', $direction)->get();
+
     }
 
     public function getByStatus($status)
     {
-        return $this->model->where($status)->get();
+
     }
 
     public function update(Member $member, array $columns): void
     {
-        return $this->model->where($columns)->update($member);
+
     }
 
     public function addPoints(Member $member, float $points): void
     {
-        return $this->model->where($member)->add($points);
+
     }
 }

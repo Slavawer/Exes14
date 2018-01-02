@@ -21,7 +21,7 @@ interface MembersRepository
      * @param int $id
      * @return Member
      */
-    public function getById(int $id): Member;
+    public function getById(int $id): member;
 
     /**
      * Get members by direction
