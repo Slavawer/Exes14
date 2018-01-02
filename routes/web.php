@@ -17,3 +17,5 @@ $router->get('/', function () use ($router) {
 
 $router->get('members', 'MembersController@getAll');
 
+$router->get('member/{id}', 'MembersController@getById');
+
