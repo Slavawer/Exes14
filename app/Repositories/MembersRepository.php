@@ -4,17 +4,16 @@ namespace App\Repositories;
 
 use Illuminate\Support\Collection;
 use App\Member;
-
+use App\Direction;
 
 interface MembersRepository
 {
     /**
-     * Gets all members
+     * Get all members
      *
-     * @param array $columns
      * @return Collection
      */
-    function getAll($columns = array('*'));
+    public function getAll(): Collection;
 
     /**
      * Get member by id
@@ -22,47 +21,39 @@ interface MembersRepository
      * @param int $id
      * @return Member
      */
-    function getById(int $id);
+    public function getById(int $id): member;
 
     /**
-     * Gets members by direction
+     * Get members by direction
      *
-     * @param $direction
-     * @return Member
+     * @param Direction $direction
+     * @return Collection
+     */
+    public function getByDirection(Direction $direction): Collection;
+
+    /**
+     * Get members by status
+     *
+     * @param string $status one of "В игре"|"Выбыл"
+     * @return Collection
      */
 
-    function getDirectionMembers($id, $direction);
+    public function getByStatus($status);
 
     /**
-     * Gets members by status
+     * Update member
+     * NOTE! You must validate your data before use this method!
      *
-     * @param $status
-     * @return Member
-     */
-
-    function getStatusMembers($id, $status);
-
-    /**
-     * Gets member by points
-     *
+     * @param Member $member
      * @param array $columns
-     * @return Member
      */
-
-    function addPointsMember(array $columns);
+    public function update(Member $member, array $columns): void;
 
     /**
-     * Add Points for members
+     * Add points to member
      *
-     * @param array $columns
-     * @return Member
+     * @param Member $member
+     * @param float $points
      */
-
-    function editMember($id, array $columns);
-    /**
-     * Edit members
-     *
-     * @param array $columns
-     * @return Member
-     */
+    public function addPoints(Member $member, float $points): void;
 }
