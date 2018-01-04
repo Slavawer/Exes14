@@ -11,9 +11,14 @@
 |
 */
 
+use Illuminate\Http\Request;
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
 $router->get('members', 'MembersController@getAll');
 
+$router->get('member/{id:[0-9]+}', 'MembersController@getById', function ($id) {
+
+});

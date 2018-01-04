@@ -26,7 +26,7 @@ class EloquentMembers implements MembersRepository
 
     public function getById(int $id): Member
     {
-        return $this->model->find($id);
+        return $this->model->findOrFail($id);
     }
 
     public function getByDirection(Direction $direction): Collection
