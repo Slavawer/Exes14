@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Direction;
 use App\Member;
 use App\Repositories\EloquentMembers;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
 class MembersController extends Controller
@@ -18,8 +19,8 @@ class MembersController extends Controller
     {
         try {
             return response()->json($members->getById($id));
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()]);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['404' => $e->getMessage()]);
         }
     }
 

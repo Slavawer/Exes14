@@ -21,7 +21,7 @@ $router->get('members', 'MembersController@getAll');
 
 $router->get('member/{id}', 'MembersController@getById', function (Request $request) {
     $this->validate($request, [
-        'id' => 'required|unique',
+        'id' => '[0-9]+',
     ]);
 });
 
