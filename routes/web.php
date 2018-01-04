@@ -19,9 +19,6 @@ $router->get('/', function () use ($router) {
 
 $router->get('members', 'MembersController@getAll');
 
-$router->get('member/{id}', 'MembersController@getById', function (Request $request) {
-    $this->validate($request, [
-        'id' => '[0-9]+',
-    ]);
-});
+$router->get('member/{id:[0-9]+}', 'MembersController@getById', function ($id) {
 
+});
