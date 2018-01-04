@@ -20,7 +20,7 @@ class MembersController extends Controller
         try {
             return response()->json($members->getById($id));
         } catch (ModelNotFoundException $e) {
-            return response()->json(['404' => $e->getMessage()]);
+            return response()->json(['error' => $e->getMessage()], 404);
         }
     }
 
