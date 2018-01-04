@@ -16,7 +16,11 @@ class MembersController extends Controller
 
     public function getById(EloquentMembers $members, $id)
     {
-        return response()->json($members->getById($id));
+        try {
+            return response()->json($members->getById($id));
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
     }
 
     public function getByDirection(EloquentMembers $members, Direction $direction)

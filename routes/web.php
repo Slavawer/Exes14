@@ -11,11 +11,17 @@
 |
 */
 
+use Illuminate\Http\Request;
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
 $router->get('members', 'MembersController@getAll');
 
-$router->get('member/{id}', 'MembersController@getById');
+$router->get('member/{id}', 'MembersController@getById', function (Request $request) {
+    $this->validate($request, [
+        'id' => 'required|unique',
+    ]);
+});
 
