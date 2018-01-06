@@ -9,10 +9,12 @@ use Illuminate\Support\Collection;
 class EloquentMembers implements MembersRepository
 {
     protected $model;
+    protected $direction;
 
-    public function __construct(Member $model)
+    public function __construct(Member $model, Direction $direction)
     {
         $this->model = $model;
+        $this->direction = $direction;
     }
 
     /**
@@ -29,9 +31,9 @@ class EloquentMembers implements MembersRepository
         return $this->model->findOrFail($id);
     }
 
-    public function getByDirection($direction): Collection
+    public function getByDirection(int $id): direction
     {
-        return $this->model->where('direction_id', $direction)->with('direction')->get();
+        return $this->direction->with('members')->findOrFail($id);
     }
 
     public function getByStatus($status)

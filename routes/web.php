@@ -23,6 +23,12 @@ $router->get('member/{id:[0-9]+}', 'MembersController@getById', function ($id) {
 
 });
 
-$router->get('direction/{id:[0-9]+}', 'MembersController@getByDirection');
+$router->get('direction/{id:[0-9]+}', 'MembersController@getByDirection', function ($id) {
 
-$router->get('status/{status}', 'MembersController@getByStatus');
+});
+
+$router->get('status/{status:[A-Za-z]+}', 'MembersController@getByStatus', function ($status) {
+
+});
+
+

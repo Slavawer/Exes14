@@ -24,12 +24,10 @@ interface MembersRepository
     public function getById(int $id): member;
 
     /**
-     * Get members by direction
-     *
-     * @param $direction
-     * @return Collection
+     * @param int $id
+     * @return Direction
      */
-    public function getByDirection($direction): Collection;
+    public function getByDirection(int $id): direction;
 
     /**
      * Get members by status
