@@ -26,10 +26,10 @@ interface MembersRepository
     /**
      * Get members by direction
      *
-     * @param Direction $direction
+     * @param $direction
      * @return Collection
      */
-    public function getByDirection(Direction $direction): Collection;
+    public function getByDirection($direction): Collection;
 
     /**
      * Get members by status

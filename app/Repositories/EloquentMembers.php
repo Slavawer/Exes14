@@ -29,9 +29,9 @@ class EloquentMembers implements MembersRepository
         return $this->model->findOrFail($id);
     }
 
-    public function getByDirection(Direction $direction): Collection
+    public function getByDirection($direction): Collection
     {
-
+        return $this->model->where('direction_id', $direction)->with('direction')->get();
     }
 
     public function getByStatus($status)
