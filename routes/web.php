@@ -11,8 +11,6 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
-
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
@@ -27,8 +25,6 @@ $router->get('direction/{id:[0-9]+}', 'MembersController@getByDirection', functi
 
 });
 
-$router->get('status/{status:[outingame]+}', 'MembersController@getByStatus', function ($status) {
-
-});
+$router->get('status/{status}', 'MembersController@getByStatus', ['status' => '/^(ingame|out)$/']);
 
 
