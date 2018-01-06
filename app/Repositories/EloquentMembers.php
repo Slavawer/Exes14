@@ -38,7 +38,17 @@ class EloquentMembers implements MembersRepository
 
     public function getByStatus($status)
     {
-        return $this->model->where('status', $status)->get();
+        $str = mb_strtolower($status, 'UTF-8');
+        $status = array(
+            'В игре' => 'ingame',
+            'Выбыл' => 'out'
+        );
+        foreach ($status as $stat => $tr) {
+            $tr = explode(',', $tr);
+
+            $str = str_replace($tr, $stat, $str);
+        }
+        return $this->model->where('status', $str)->get();
     }
 
     public function update(Member $member, array $columns): void
