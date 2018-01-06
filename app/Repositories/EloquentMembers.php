@@ -36,7 +36,7 @@ class EloquentMembers implements MembersRepository
 
     public function getByStatus($status)
     {
-
+        return $this->model->where('status', $status)->get();
     }
 
     public function update(Member $member, array $columns): void

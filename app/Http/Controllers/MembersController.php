@@ -31,7 +31,7 @@ class MembersController extends Controller
 
     public function getByStatus(EloquentMembers $members, $status)
     {
-
+        return response()->json($members->getByStatus($status));
     }
 
     public function update(EloquentMembers $members, $member, array $columns)
