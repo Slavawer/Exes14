@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Illuminate\Support\Collection;
+use Illuminate\Http\Request;
 use App\Member;
 use App\Direction;
 
@@ -41,17 +42,14 @@ interface MembersRepository
     /**
      * Update member
      * NOTE! You must validate your data before use this method!
-     *
-     * @param Member $member
-     * @param array $columns
+     * @param Request $request
+     * @param $id
      */
-    public function update(Member $member, array $columns): void;
+    public function update($id, Request $request);
 
     /**
      * Add points to member
-     *
-     * @param Member $member
-     * @param float $points
+     * @param Request $request
      */
-    public function addPoints(Member $member, float $points): void;
+    public function addPoints(Request $request);
 }

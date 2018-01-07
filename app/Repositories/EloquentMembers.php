@@ -4,17 +4,21 @@ namespace App\Repositories;
 
 use App\Direction;
 use App\Member;
+use App\Point;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
 class EloquentMembers implements MembersRepository
 {
     protected $model;
     protected $direction;
+    protected $point;
 
-    public function __construct(Member $model, Direction $direction)
+    public function __construct(Member $model, Direction $direction, Point $point)
     {
         $this->model = $model;
         $this->direction = $direction;
+        $this->point = $point;
     }
 
     /**
@@ -46,13 +50,19 @@ class EloquentMembers implements MembersRepository
         return $this->model->where('status', $possibleStatuses[$status])->get();
     }
 
-    public function update(Member $member, array $columns): void
+    public function update($id, Request $request)
     {
 
     }
 
-    public function addPoints(Member $member, float $points): void
+    public function addPoints(Request $request)
     {
+        $point = new Point;
 
+        $point->member_id = $request->member_id;
+        $point->points = $request->points;
+        $point->save();
+
+        return $point;
     }
 }

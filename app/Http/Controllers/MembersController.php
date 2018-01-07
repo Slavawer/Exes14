@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Direction;
 use App\Member;
 use App\Repositories\EloquentMembers;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
@@ -38,13 +39,13 @@ class MembersController extends Controller
         return response()->json($members->getByStatus($status));
     }
 
-    public function update(EloquentMembers $members, $member, array $columns)
+    public function update(EloquentMembers $members, $id, request $request)
     {
 
     }
 
-    public function addPoints(EloquentMembers $members, $member, float $points)
+    public function addPoints(EloquentMembers $members, request $request)
     {
-
+        return response()->json($members->addPoints($request));
     }
 }

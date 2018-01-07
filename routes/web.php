@@ -27,4 +27,5 @@ $router->get('direction/{id:[0-9]+}', 'MembersController@getByDirection', functi
 
 $router->get('status/{status}', 'MembersController@getByStatus', ['status' => '/^(ingame|out)$/']);
 
+$router->get('points/create', 'MembersController@addPoints');
 
