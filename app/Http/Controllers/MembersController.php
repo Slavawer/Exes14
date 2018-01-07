@@ -41,7 +41,7 @@ class MembersController extends Controller
 
     public function update(EloquentMembers $members, $id, request $request)
     {
-
+        return response()->json($members->update($id, $request));
     }
 
     public function addPoints(EloquentMembers $members, request $request)

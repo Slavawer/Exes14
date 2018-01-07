@@ -29,3 +29,4 @@ $router->get('status/{status}', 'MembersController@getByStatus', ['status' => '/
 
 $router->get('points/create', 'MembersController@addPoints');
 
+$router->get('members/{id}/update', 'MembersController@update');

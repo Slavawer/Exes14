@@ -52,7 +52,18 @@ class EloquentMembers implements MembersRepository
 
     public function update($id, Request $request)
     {
+        $updateMember = $this->model->findOrFail($id);
 
+        $updateMember->firstname = $request->firstname;
+        $updateMember->lastname = $request->lastname;
+        $updateMember->avatar = $request->avatar;
+        $updateMember->info = $request->info;
+        $updateMember->status = $request->status;
+        $updateMember->direction_id = $request->direction_id;
+
+        $updateMember->save();
+
+        return $updateMember;
     }
 
     public function addPoints(Request $request)
