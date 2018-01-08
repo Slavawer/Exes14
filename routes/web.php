@@ -22,3 +22,5 @@ $router->get('members', 'MembersController@getAll');
 $router->get('member/{id:[0-9]+}', 'MembersController@getById', function ($id) {
 
 });
+
+$router->get('direction/{id:[0-9]+}', 'MembersController@getByDirection');

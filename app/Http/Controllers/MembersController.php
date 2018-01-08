@@ -24,9 +24,9 @@ class MembersController extends Controller
         }
     }
 
-    public function getByDirection(EloquentMembers $members, Direction $direction)
+    public function getByDirection(EloquentMembers $members, $direction)
     {
-
+        return response()->json($members->getByDirection($direction));
     }
 
     public function getByStatus(EloquentMembers $members, $status)
