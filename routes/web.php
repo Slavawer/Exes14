@@ -11,8 +11,6 @@
 |
 */
 
-use Illuminate\Http\Request;
-
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
@@ -23,4 +21,10 @@ $router->get('member/{id:[0-9]+}', 'MembersController@getById', function ($id) {
 
 });
 
-$router->get('direction/{id:[0-9]+}', 'MembersController@getByDirection');
+$router->get('direction/{id:[0-9]+}', 'MembersController@getByDirection', function ($id) {
+
+});
+
+$router->get('status/{status}', 'MembersController@getByStatus', ['status' => '/^(ingame|out)$/']);
+
+

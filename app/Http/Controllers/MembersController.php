@@ -24,14 +24,18 @@ class MembersController extends Controller
         }
     }
 
-    public function getByDirection(EloquentMembers $members, $direction)
+    public function getByDirection(EloquentMembers $members, $id)
     {
-        return response()->json($members->getByDirection($direction));
+        try {
+            return response()->json($members->getByDirection($id));
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['error' => $e->getMessage()], 404);
+        }
     }
 
     public function getByStatus(EloquentMembers $members, $status)
     {
-
+        return response()->json($members->getByStatus($status));
     }
 
     public function update(EloquentMembers $members, $member, array $columns)
